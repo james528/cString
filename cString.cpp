@@ -1,3 +1,7 @@
+//James Parungao
+//CPSC 301
+//2/14/2019
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -26,6 +30,7 @@ int main()
 
 	infile.open(filename.c_str()); 
 	
+	//used to open the file, count the lines, and close the file.
 	while (!infile.eof())
 	{
 		getline(infile, lines);
@@ -36,15 +41,13 @@ int main()
 	infile.close();
 
 	PERSON * p = new PERSON[n];
-	infile.open(filename.c_str());
+	infile.open(filename.c_str()); //reopens file to actually read the contents.
 
 	for (int i = 0; i < n; i++)
 	{
 		infile >> g >> b;
-		int n = g.length();
-		int m = b.length();
 		infile >> x;
-		strcpy_s(p[i].Name, g.c_str());
+		strcpy_s(p[i].Name, g.c_str()); //used to convert the string into a character array to store in the struct
 		strcpy_s(p[i].lastName, b.c_str());
 		p[i].balance = x;
 		getline(infile, c);
